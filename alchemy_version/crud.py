@@ -25,5 +25,5 @@ def create_item_to_list(list_id, name):
     return f"INSERT INTO todo_items (name, state, list_id) VALUES('{name}', 0, {list_id});"
 
 
-def delete_itask_query(item_id):
+def delete_item_from_list(item_id):
     return f"DELETE FROM todo_items WHERE item_id = {task_id}"
