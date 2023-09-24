@@ -1,5 +1,4 @@
 from sqlalchemy import create_engine, Column, Integer, String, Boolean, ForeignKey
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import declarative_base
 
 eng = create_engine("sqlite:///todo_app.db")
@@ -22,5 +21,9 @@ class TodoItems(Base):
         "todo_lists.list_id", ondelete="CASCADE"))
     state = Column(Boolean, default=False)
 
+    def __repr__(self):
+        return f"{self.item_id}: {self.name}"
 
-Base.metadata.create_all(eng)
+
+if __name__ == "__main__":
+    Base.metadata.create_all(eng)
